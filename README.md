@@ -23,7 +23,7 @@ I'm creating this application as part of a job assignment.
 
 ## Requirements
 
-The challenge requirements can be found here. **[Check it here](./src/Assets/Practical Code Challenge v2.pdf)**
+The challenge requirements can be found here. **[Check it here](./Practical Code Challenge v2.pdf)**
 
 ## Features
 
@@ -43,7 +43,7 @@ or
 `https://github.com/giovanizanetti/My-wiki-assignment.git`
 
 Once you have cloned the repo, you can run:
-`yarn install` or `npm install` to download all the dependencies needed to the project to work in your machine.
+`yarn install` or `npm install` to download all the dependencies needed to the project to work on your machine.
 
 ## Decisions
 
