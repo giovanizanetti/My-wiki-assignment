@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# My Wiki App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Check out the deployed version here!](https://giovani-zanett-my-wiki.netlify.app/)
 
-## Available Scripts
+## What this project is about
 
-In the project directory, you can run:
+I'm creating this application as part of a job assignment.
 
-### `yarn start`
+## Technologies used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React.js
+- React-router-dom
+- React-autocomplete
+- Boostrap
+- Axios
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Goals for this project:
 
-### `yarn test`
+- Get this job opportunity
+- Make a working application
+- Practice React.js
+- Showcase a new application on my portfolio.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Requirements
 
-### `yarn build`
+The challenge requirements can be found here. **[Check it here](./src/Assets/Practical Code Challenge v2.pdf)**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Search for Wikipedia article,
+- Save Articles
+- Delete Articles
+- Persist saved articles using the browser local storage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalation
 
-### `yarn eject`
+You easily close this repo on your machine by using one of the following commands:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`git@github.com:giovanizanetti/My-wiki-assignment.git`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+or
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`https://github.com/giovanizanetti/My-wiki-assignment.git`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Once you have cloned the repo, you can run:
+`yarn install` or `npm install` to download all the dependencies needed to the project to work in your machine.
 
-## Learn More
+## Decisions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Even though I could use any technologies to accomplish this task, I decided to go for React.js. The vacancy I'm applying for is a React Developer position, so I think it would be wise to show that I can work with this technology.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Even though styles were provided, I used a bit of the Bootstrap classes. I believe that is a good opportunity to show that I can work with libraries.
 
-### Code Splitting
+I struggled a bit to get the`<datalist>` HTML5 tag to work with React. I think that it was one of the main things which delayed my process. Therefore, I changed the plan and used the React-autocomplete npm package to accomplish the autocomplete functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To integrate the views and manage route changing, I used the React-router-dom package. The user is redirected to`/wikilist` when submit button is pressed. There are links on the navigation bar to navigate back and forth routes. The links are displayed conditionally depending on the current route.
 
-### Analyzing the Bundle Size
+The user articles are saved on the browser LocalStorage. That means the user will not lose the information on page refresh.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+My application is deployed with continuous deployment. This is done by, integrating the project's GitHub repo with [Netlify](https://www.netlify.com/).
 
-### Making a Progressive Web App
+If you have any feedback, please drop me a line at giovanizanetti@gmail.com.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Create React App
 
-### Advanced Configuration
+This project was scaffolded using the create-react-app cli.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**[The standard create-react-app docs can be found in here](./REACT-README.md)**
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## [Check out the deployed version here!](https://giovani-zanett-my-wiki.netlify.app/)
