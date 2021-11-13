@@ -1,4 +1,8 @@
 const WikiList = ({ items }) => {
+  if (!items.length)
+    return (
+      <strong className='d-flex justify-content-center text-warning bg-dark mt-5'>You have no articles yet!</strong>
+    )
   return (
     <section className='result mx-auto'>
       {items &&
