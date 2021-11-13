@@ -85,7 +85,9 @@ const AddArticle = ({ addItem, deleteItem }) => {
         <input className='desc' type='text' disabled value={itemDescription} readOnly />
       </td>
       <td>
-        <button onClick={() => deleteItem(selectedItem.pageid)}>Delete</button>
+        <button className='btn bg-light border-dark' onClick={() => deleteItem(selectedItem.pageid)}>
+          Delete
+        </button>
       </td>
     </tr>
   )

@@ -3,7 +3,9 @@ import React from 'react'
 const InputListFooter = ({ submit }) => {
   return (
     <footer className='d-flex justify-content-center'>
-      <button onClick={() => submit()}>Submit</button>
+      <button className='btn bg-light border-dark' onClick={() => submit()}>
+        Submit
+      </button>
     </footer>
   )
 }
