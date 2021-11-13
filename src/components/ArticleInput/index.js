@@ -4,13 +4,13 @@ import { getDescription } from '../../helpers'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
 
-const ArticleInput = ({ addArticle }) => {
+const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   const [selected, setSelected] = useState(null)
   const inputRef = useRef()
-  const [feedBack, setFeedback] = useState()
+  const [feedBack, setFeedback] = useState('')
 
   useEffect(() => {
     inputRef.current.focus()
@@ -23,13 +23,18 @@ const ArticleInput = ({ addArticle }) => {
 
   const handleSelect = (label, item) => {
     if (getDescription(item) === 'INVALID') {
-      setFeedback(true)
+      setFeedback('INVALID')
       setSelected(item)
       return
     }
-    addArticle(item)
-    setFeedback(false)
-    setSearchTerm('')
+    const isItem = list.find((article) => article.pageid == item.pageid)
+    if (!isItem) {
+      addArticle(item)
+      setFeedback(false)
+      setSearchTerm('')
+    } else {
+      setFeedback('THIS ARTICLE HAS BEEN ALREADY SELECTED!')
+    }
   }
 
   /**
@@ -69,10 +74,10 @@ const ArticleInput = ({ addArticle }) => {
         </td>
         <td>
           <input
-            className={`desc ${getDescription(selected) === 'INVALID' ? 'text-danger font-weight-bold' : ''}`}
+            className={`desc ${feedBack ? 'text-danger font-weight-bold' : ''}`}
             type='text'
             disabled
-            value={feedBack ? 'INVALID' : ''}
+            value={feedBack ? feedBack : ''}
             readOnly
           />
         </td>
