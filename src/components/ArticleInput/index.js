@@ -10,7 +10,6 @@ const ArticleInput = ({ addArticle }) => {
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   const [selected, setSelected] = useState(null)
   const inputRef = useRef()
-  const [clearField, setClearField] = useState(false)
 
   useEffect(() => {
     inputRef.current.focus()
@@ -21,14 +20,11 @@ const ArticleInput = ({ addArticle }) => {
     setSearchTerm(value)
   }
 
-  const handleDelete = (item) => {
-    console.log(item)
-  }
   const handleSelect = (label, item) => {
     if (getDescription(item) === 'INVALID') {
+      setSelected(item)
       return
     }
-
     addArticle(item)
     setSearchTerm('')
   }
