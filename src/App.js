@@ -16,7 +16,6 @@ function App() {
   }
 
   const handleDeleteArticle = (id) => {
-    console.log(articlesList)
     const filteredItems = articlesList.filter((item) => item.pageid !== id)
     setArticlesList(filteredItems)
   }
