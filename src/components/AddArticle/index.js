@@ -1,18 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
-<<<<<<< HEAD
 import Autocomplete from 'react-autocomplete'
-=======
->>>>>>> b5b9b91609c6bbc8a94ae71871853e355d3c815a
 
 const AddArticle = ({ addItem, deleteItem }) => {
   const [searchTerm, setSearchTerm] = useState('')
-<<<<<<< HEAD
-  const debouncedSearchTerms = useDebounce(searchTerm, 250)
-=======
+
   const debouncedSearchTerms = useDebounce(searchTerm, 300)
->>>>>>> b5b9b91609c6bbc8a94ae71871853e355d3c815a
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   const [itemDescription, setItemDescription] = useState('')
   const [selectedItem, setSelectedItem] = useState(null)
@@ -80,7 +74,6 @@ const AddArticle = ({ addItem, deleteItem }) => {
   return (
     <tr>
       <td>
-<<<<<<< HEAD
         <Autocomplete
           renderItem={(item, isHighlighted) => (
             <div key={item.pageid} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
@@ -93,11 +86,6 @@ const AddArticle = ({ addItem, deleteItem }) => {
           items={arrData}
           onSelect={(label, item) => handleSelect(label, item)}
         />
-=======
-        <input onChange={(e) => handleChange(e)} value={searchTerm} type='text' list='data' />
-        {console.log(searchTerm.length)}
-        {searchTerm.length > 0 && <datalist id='data'>{displaySugestions()}</datalist>}
->>>>>>> b5b9b91609c6bbc8a94ae71871853e355d3c815a
       </td>
       <td>
         <input className='desc' type='text' disabled value={itemDescription} readOnly />

@@ -5,10 +5,7 @@ const WikiList = ({ items }) => {
         items.map((article) => (
           <article key={article.pageid}>
             <h1>{article.title}</h1>
-            <p>
-              A star is an astronomical object consisting of a luminous spheroid of plasma held together by its own
-              gravity.
-            </p>
+            <p>{article.extract}</p>
             <a target='_blank' href={article.fullurl} rel='noreferrer'>
               {article.fullurl}
             </a>
