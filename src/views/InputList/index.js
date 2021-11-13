@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import InpuListHeader from './InpuListHeader'
 import AddArticle from '../../components/AddArticle'
+import InputListFooter from './InputListFooter'
 
 const InputList = ({ addArticles }) => {
   const [listItems, setListItems] = useState([])
@@ -38,10 +39,8 @@ const InputList = ({ addArticles }) => {
             <td colSpan='3'>{count}</td>
           </tr>
         </tfoot>
+        <InputListFooter submit={handleSubmit} />
       </table>
-      <footer className='d-flex justify-content-center'>
-        <button onClick={handleSubmit}>Submit</button>
-      </footer>
     </div>
   )
 }
