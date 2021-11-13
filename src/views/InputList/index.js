@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import InpuListHeader from './InpuListHeader'
 import AddArticle from '../../components/AddArticle'
 import InputListFooter from './InputListFooter'
+import Counter from './Counter'
 
 const InputList = ({ addArticles }) => {
   const [listItems, setListItems] = useState([])
@@ -34,11 +35,7 @@ const InputList = ({ addArticles }) => {
             return <AddArticle key={item.pageid} addItem={(item) => handleAddItem(item)} />
           })}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan='3'>{count}</td>
-          </tr>
-        </tfoot>
+        <Counter count={count} />
         <InputListFooter submit={handleSubmit} />
       </table>
     </div>
