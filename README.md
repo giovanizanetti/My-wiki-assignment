@@ -23,7 +23,7 @@ I'm creating this application as part of a job assignment.
 
 ## Requirements
 
-The challenge requirements can be found here. **[Check it here](./Practical Code Challenge v2.pdf)**
+The challenge requirements can be found **[here](./challenge_instructions.pdf)**.
 
 ## Features
 
