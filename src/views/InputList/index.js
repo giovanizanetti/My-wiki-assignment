@@ -6,6 +6,7 @@ import AddArticle from '../../components/AddArticle'
 
 const InputList = ({ addArticles }) => {
   const [listItems, setListItems] = useState([])
+
   const history = useHistory()
 
   const handleAddItem = (item) => {
