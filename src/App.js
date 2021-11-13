@@ -1,7 +1,6 @@
 import { useDocTitle } from '../src/hooks/useDocTitle'
 import { APP_NAME } from '../src/config/constants'
 import InputList from './views/InputList'
-import { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { useLocalStorage } from './hooks/useLocalStorege'
 
