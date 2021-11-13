@@ -68,11 +68,3 @@ This project was scaffolded using the create-react-app cli.
 **[The standard create-react-app docs can be found in here](./REACT-README.md)**
 
 ## [Check out the deployed version here!](https://giovani-zanett-my-wiki.netlify.app/)
-
-## Create React App
-
-This project was scaffolded using the create-react-app cli.
-
-**[The standard create-react-app docs can be found in here](./REACT-README.md)**
-
-## [Check out the deployed version here!](https://giovani-zanett-my-wiki.netlify.app/)
