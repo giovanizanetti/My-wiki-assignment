@@ -7,7 +7,9 @@ import { useFetch } from '../../hooks/useFetch'
 const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
+  // eslint-disable-next-line
   const [data, loading, error] = useFetch(debouncedSearchTerms)
+  // eslint-disable-next-line
   const [selected, setSelected] = useState(null)
   const inputRef = useRef()
   const [feedBack, setFeedback] = useState('')
@@ -27,6 +29,7 @@ const ArticleInput = ({ addArticle, list }) => {
       setSelected(item)
       return
     }
+    // eslint-disable-next-line
     const isItem = list.find((article) => article.pageid == item.pageid)
     if (!isItem) {
       addArticle(item)

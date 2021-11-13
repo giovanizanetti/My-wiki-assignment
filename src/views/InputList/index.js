@@ -13,7 +13,8 @@ const InputList = ({ addArticles }) => {
   const history = useHistory()
 
   const handleAddArticle = (article) => {
-    const isItem = listItems.find((item) => item.pageid == article.pageid)
+    // eslint-disable-next-line
+    const isItem = listItems.find((item) => item.pageid === article.pageid)
 
     if (!isItem) {
       setListItems((prevState) => [...prevState, article])
