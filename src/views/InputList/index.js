@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import InpuListHeader from './InpuListHeader'
@@ -14,6 +14,7 @@ const InputList = ({ addArticles }) => {
 
   const handleAddArticle = (article) => {
     const isItem = listItems.find((item) => item.pageid == article.pageid)
+
     if (!isItem) {
       setListItems((prevState) => [...prevState, article])
     } else {
