@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
 import InpuListHeader from './InpuListHeader'
 import AddArticle from '../../components/AddArticle'
 
 const InputList = ({ addArticles }) => {
   const [listItems, setListItems] = useState([])
+  const history = useHistory()
 
   const handleAddItem = (item) => {
     setListItems((prevState) => [...prevState, item])
@@ -15,11 +18,12 @@ const InputList = ({ addArticles }) => {
   const handleSubmit = () => {
     addArticles(listItems)
     setListItems([])
+    history.push('/wikilist')
   }
   const count = listItems.length < 1 ? 'No items' : listItems.length === 1 ? `1 item` : `${listItems.length} items`
 
   return (
-    <>
+    <div className='d-flex flex-column align-items-center '>
       <table>
         <InpuListHeader />
         <tbody>
@@ -34,10 +38,10 @@ const InputList = ({ addArticles }) => {
           </tr>
         </tfoot>
       </table>
-      <footer>
+      <footer className='d-flex justify-content-center'>
         <button onClick={handleSubmit}>Submit</button>
       </footer>
-    </>
+    </div>
   )
 }
 

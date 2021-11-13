@@ -19,18 +19,14 @@ function App() {
   return (
     <>
       <Header />
-      <Container>
-        <Col xs={12} sm={8} xl={5}>
-          <Switch>
-            <Route path='/' exact>
-              <InputList addArticles={handleAddArticles} />
-            </Route>
-            <Route path='/wikilist' exact>
-              <WikiList items={articlesList} />
-            </Route>
-          </Switch>
-        </Col>
-      </Container>
+      <Switch>
+        <Route path='/' exact>
+          <InputList addArticles={handleAddArticles} />
+        </Route>
+        <Route path='/wikilist' exact>
+          <WikiList items={articlesList} />
+        </Route>
+      </Switch>
     </>
   )
 }
