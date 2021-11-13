@@ -16,6 +16,8 @@ export const useFetch = (debouncedSearchTerms) => {
       axios
         .get(url)
         .then((response) => {
+          console.log('from use Fetch response')
+
           setData(response.data)
         })
         .catch((err) => {
