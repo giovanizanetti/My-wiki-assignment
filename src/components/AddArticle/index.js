@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
 import Autocomplete from 'react-autocomplete'
@@ -11,18 +11,10 @@ const AddArticle = ({ addItem, deleteItem }) => {
   const [itemDescription, setItemDescription] = useState('')
   const [selectedItem, setSelectedItem] = useState(null)
 
-  useEffect(() => {})
-
-  //Transforming object keys in an array
-
-  const displaySugestions = () => {
-    if (data) {
-      const dataListKeys = Object.keys(data.query.pages)
-      return (
-        dataListKeys.length > 0 && dataListKeys.map((key) => <option key={key} value={data.query.pages[key].title} />)
-      )
-    }
-  }
+  const inputRef = useRef()
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   const handleChange = (e) => {
     setItemDescription('')
@@ -31,7 +23,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
   }
 
   /**
-   * Sort data ascendently
+   * Sort data ascendantly
    *
    * Convert response object to an Array
    *
@@ -75,6 +67,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
     <tr>
       <td>
         <Autocomplete
+          ref={inputRef}
           renderItem={(item, isHighlighted) => (
             <div key={item.pageid} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
               {item.title}

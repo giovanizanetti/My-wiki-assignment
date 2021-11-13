@@ -8,11 +8,11 @@ const Header = () => {
     <Navbar title='header' bg='info'>
       <h1 className='text-light px-5 m-auto'>My Wiki</h1>
       {location?.pathname === '/' ? (
-        <Link className='mx-3' to='/wikilist'>
+        <Link className='mx-3 text-dark' to='/wikilist'>
           WikiList
         </Link>
       ) : (
-        <Link className='mx-3' to='/'>
+        <Link className='mx-3 text-dark' to='/'>
           Home
         </Link>
       )}

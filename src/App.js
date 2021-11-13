@@ -1,4 +1,3 @@
-import { Container, Col, Row } from 'react-bootstrap'
 import { useDocTitle } from '../src/hooks/useDocTitle'
 import { APP_NAME } from '../src/config/constants'
 import InputList from './views/InputList'
