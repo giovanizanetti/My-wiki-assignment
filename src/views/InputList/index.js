@@ -12,7 +12,7 @@ const InputList = ({ addArticles }) => {
   const history = useHistory()
 
   const handleAddItem = (item) => {
-    setListItems((prevState) => [...prevState, item])
+    setListItems((prevState) => [item, ...prevState])
   }
   const handleDelete = (id) => {
     const filteredItems = listItems.filter((item) => item.pageid !== id)
@@ -30,10 +30,14 @@ const InputList = ({ addArticles }) => {
       <table>
         <InpuListHeader />
         <tbody>
-          <AddArticle addItem={(item) => handleAddItem(item)} deleteItem={(id) => handleDelete(id)} />
           {listItems.map((item) => {
             return <AddArticle key={item.pageid} addItem={(item) => handleAddItem(item)} />
           })}
+          <AddArticle
+            isDefaultInput={true}
+            addItem={(item) => handleAddItem(item)}
+            deleteItem={(id) => handleDelete(id)}
+          />
         </tbody>
         <Counter count={count} />
         <InputListFooter submit={handleSubmit} />

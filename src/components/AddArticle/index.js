@@ -3,7 +3,7 @@ import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
 import Autocomplete from 'react-autocomplete'
 
-const AddArticle = ({ addItem, deleteItem }) => {
+const AddArticle = ({ addItem, deleteItem, isDefaultInput }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const debouncedSearchTerms = useDebounce(searchTerm, 300)
@@ -40,6 +40,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
     []
 
   const handleSelect = (label, item) => {
+    console.log(isDefaultInput)
     const invalidDescription = 'INVALID'
     let description
 
@@ -70,7 +71,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
         <Autocomplete
           ref={inputRef}
           renderItem={(item, isHighlighted) => (
-            <div key={item.pageid} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+            <div className={`p-2 bg-${isHighlighted ? 'light' : 'white'}`} key={item.pageid}>
               {item.title}
             </div>
           )}
