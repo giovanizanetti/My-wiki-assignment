@@ -3,6 +3,7 @@ import Autocomplete from 'react-autocomplete'
 import { getDescription } from '../../helpers'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
+import { transformAndSort } from '../../helpers'
 
 const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -40,22 +41,6 @@ const ArticleInput = ({ addArticle, list }) => {
     }
   }
 
-  /**
-   * Sort data ascendantly
-   *
-   * Convert response object to an Array
-   *
-   * @returns array of articles objects
-   */
-  const arrData =
-    (data?.query &&
-      Object.keys(data.query.pages)
-        .sort((articleA, articleB) => articleA - articleB)
-        .map((key) => {
-          return !data.query.pages[key].pageprops.disambiguation && data.query.pages[key]
-        })) ||
-    []
-
   if (error) return <strong>Ops! one error has ocurred!</strong>
   return (
     <tbody>
@@ -71,7 +56,7 @@ const ArticleInput = ({ addArticle, list }) => {
             onChange={(e) => handleChange(e)}
             value={searchTerm}
             getItemValue={(item) => item.title}
-            items={arrData}
+            items={transformAndSort(data)}
             onSelect={(label, item) => handleSelect(label, item)}
           />
         </td>
