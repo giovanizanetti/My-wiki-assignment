@@ -12,12 +12,9 @@ export const useFetch = (debouncedSearchTerms) => {
 
     function fetch() {
       const url = BASE_URL + debouncedSearchTerms
-      console.log('from use Fetch')
       axios
         .get(url)
         .then((response) => {
-          console.log('from use Fetch response')
-
           setData(response.data)
         })
         .catch((err) => {
