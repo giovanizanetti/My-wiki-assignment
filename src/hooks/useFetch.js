@@ -8,14 +8,16 @@ export const useFetch = (debouncedSearchTerms) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const url = BASE_URL + debouncedSearchTerms
+    const abortController = new AbortController()
 
-    setLoading(true)
-
-    if (debouncedSearchTerms.length > 0) {
+    function fetch() {
+      const url = BASE_URL + debouncedSearchTerms
+      console.log('from use Fetch')
       axios
         .get(url)
         .then((response) => {
+          console.log('from use Fetch response')
+
           setData(response.data)
         })
         .catch((err) => {
@@ -24,6 +26,13 @@ export const useFetch = (debouncedSearchTerms) => {
         })
         .finally(() => setLoading(false))
     }
+
+    setLoading(true)
+
+    if (debouncedSearchTerms.length > 0) {
+      fetch()
+    }
+    return () => abortController.abort()
   }, [debouncedSearchTerms])
 
   return [data, loading, error]
