@@ -27,7 +27,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
    *
    * Convert response object to an Array
    *
-   * @returns array of articles
+   * @returns array of articles objects
    */
   const arrData =
     (data?.query &&
