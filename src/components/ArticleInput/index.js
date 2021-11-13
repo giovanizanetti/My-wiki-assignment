@@ -10,6 +10,7 @@ const ArticleInput = ({ addArticle }) => {
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   const [selected, setSelected] = useState(null)
   const inputRef = useRef()
+  const [feedBack, setFeedback] = useState()
 
   useEffect(() => {
     inputRef.current.focus()
@@ -22,13 +23,22 @@ const ArticleInput = ({ addArticle }) => {
 
   const handleSelect = (label, item) => {
     if (getDescription(item) === 'INVALID') {
+      setFeedback(true)
       setSelected(item)
       return
     }
     addArticle(item)
+    setFeedback(false)
     setSearchTerm('')
   }
 
+  /**
+   * Sort data ascendantly
+   *
+   * Convert response object to an Array
+   *
+   * @returns array of articles objects
+   */
   const arrData =
     (data?.query &&
       Object.keys(data.query.pages)
@@ -37,6 +47,8 @@ const ArticleInput = ({ addArticle }) => {
           return !data.query.pages[key].pageprops.disambiguation && data.query.pages[key]
         })) ||
     []
+
+  if (error) return <strong>Ops! one error has ocurred!</strong>
   return (
     <tbody>
       <tr>
@@ -56,7 +68,13 @@ const ArticleInput = ({ addArticle }) => {
           />
         </td>
         <td>
-          <input className='desc' type='text' disabled value={getDescription(selected)} readOnly />
+          <input
+            className={`desc ${getDescription(selected) === 'INVALID' ? 'text-danger font-weight-bold' : ''}`}
+            type='text'
+            disabled
+            value={feedBack ? 'INVALID' : ''}
+            readOnly
+          />
         </td>
         <td>
           <button className='btn bg-light border-dark' onClick={() => setSearchTerm('')}>

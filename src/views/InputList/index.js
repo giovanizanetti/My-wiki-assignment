@@ -15,30 +15,6 @@ const InputList = ({ addArticles }) => {
 
   const history = useHistory()
 
-  /**
-   * Sort data ascendantly
-   *
-   * Convert response object to an Array
-   *
-   * @returns array of articles objects
-   */
-  const arrData =
-    // (data?.query &&
-    //   Object.keys(data.query.pages)
-    //     .sort((articleA, articleB) => articleA - articleB)
-    //     .map((key) => {
-    //       return !data.query.pages[key].pageprops.disambiguation && data.query.pages[key]
-    //     })) ||
-    []
-
-  const handleSelect = (item) => {
-    // setSelected(item)
-    // setListItems((prevItems) => [...prevItems, item])
-    // setSelected(null)
-    // setSearchTerm('')
-    console.log('selected', item)
-  }
-
   const handleAddArticle = (article) => {
     setListItems((prevState) => [...prevState, article])
   }
