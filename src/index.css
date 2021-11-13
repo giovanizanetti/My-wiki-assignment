@@ -91,3 +91,10 @@ button {
 .result p {
   margin: 6px 0;
 }
+
+.mt-n5 {
+  margin-top: -5px !important;
+}
+.pointer {
+  cursor: pointer;
+}

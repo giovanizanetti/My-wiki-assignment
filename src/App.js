@@ -15,6 +15,12 @@ function App() {
     setArticlesList((prevState) => prevState.concat(articles))
   }
 
+  const handleDeleteArticle = (id) => {
+    console.log(articlesList)
+    const filteredItems = articlesList.filter((item) => item.pageid !== id)
+    setArticlesList(filteredItems)
+  }
+
   return (
     <>
       <Header />
@@ -23,7 +29,7 @@ function App() {
           <InputList addArticles={handleAddArticles} />
         </Route>
         <Route path='/wikilist' exact>
-          <WikiList items={articlesList} />
+          <WikiList items={articlesList} deleteArticle={handleDeleteArticle} />
         </Route>
       </Switch>
     </>
