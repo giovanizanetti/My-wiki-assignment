@@ -7,6 +7,7 @@ const AddArticle = ({ addItem, deleteItem }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const debouncedSearchTerms = useDebounce(searchTerm, 300)
+  // eslint-disable-next-line
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   const [itemDescription, setItemDescription] = useState('')
   const [selectedItem, setSelectedItem] = useState(null)
