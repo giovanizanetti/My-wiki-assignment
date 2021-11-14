@@ -31,5 +31,5 @@ export const useFetch = (debouncedSearchTerms) => {
     return () => abortController.abort()
   }, [debouncedSearchTerms])
 
-  return [data, loading, error]
+  return [data, loading, error, setData]
 }

@@ -9,13 +9,13 @@ const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   // eslint-disable-next-line
-  const [data, loading, error] = useFetch(debouncedSearchTerms)
+  const [data, loading, error, setData] = useFetch(debouncedSearchTerms)
   const inputRef = useRef()
   const [feedBack, setFeedback] = useState('')
 
   useEffect(() => {
     inputRef.current.focus()
-  }, [])
+  })
 
   const handleChange = (e) => {
     setFeedback('')
@@ -36,6 +36,12 @@ const ArticleInput = ({ addArticle, list }) => {
     } else {
       setFeedback('THIS ARTICLE HAS BEEN ALREADY SELECTED!')
     }
+  }
+
+  const resetField = () => {
+    setData([])
+    setSearchTerm('')
+    inputRef.current.focus()
   }
 
   if (error) return <strong className='text-danger'>Ops! one error has ocurred!</strong>
@@ -67,7 +73,7 @@ const ArticleInput = ({ addArticle, list }) => {
           />
         </td>
         <td>
-          <button className='btn bg-light border-dark' onClick={() => setSearchTerm('')}>
+          <button className='btn bg-light border-dark' onClick={resetField}>
             Delete
           </button>
         </td>
