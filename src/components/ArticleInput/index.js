@@ -40,8 +40,8 @@ const ArticleInput = ({ addArticle, list }) => {
   }
 
   const resetField = () => {
-    setData([])
     setSearchTerm('')
+    setData([])
     inputRef.current.focus()
   }
 
@@ -66,8 +66,8 @@ const ArticleInput = ({ addArticle, list }) => {
         </td>
         <Description feedBack={feedBack} />
         <td>
-          <button className='btn bg-light border-dark' onClick={resetField}>
-            Delete
+          <button className='btn bg-light border-dark min-w-5r' onClick={resetField}>
+            Clear
           </button>
         </td>
       </tr>

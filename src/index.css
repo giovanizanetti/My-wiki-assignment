@@ -98,3 +98,7 @@ button {
 .pointer {
   cursor: pointer;
 }
+
+.min-w-5r {
+  min-width: 4.5rem;
+}
