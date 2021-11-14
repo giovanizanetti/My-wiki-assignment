@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { transformAndSort } from '../helpers'
 
 import Autocomplete from 'react-autocomplete'
+import Description from './Description'
 
 const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState(item.title)
@@ -57,15 +58,7 @@ const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
             onSelect={(label, item) => handleSelect(label, item)}
           />
         </td>
-        <td>
-          <input
-            className={`desc ${feedBack ? 'text-danger font-weight-bold' : ''}`}
-            type='text'
-            disabled
-            value={feedBack ? feedBack : getDescription(item)}
-            readOnly
-          />
-        </td>
+        <Description feedBack={feedBack} item={item} />
         <td>
           <button className='btn bg-light border-dark' onClick={handleDelete}>
             Delete

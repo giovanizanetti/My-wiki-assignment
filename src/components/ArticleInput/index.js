@@ -4,6 +4,7 @@ import { getDescription } from '../../helpers'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
 import { transformAndSort } from '../../helpers'
+import Description from '../Description'
 
 const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -63,15 +64,7 @@ const ArticleInput = ({ addArticle, list }) => {
             onSelect={(label, item) => handleSelect(label, item)}
           />
         </td>
-        <td>
-          <input
-            className={`desc ${feedBack ? 'text-danger font-weight-bold' : ''}`}
-            type='text'
-            disabled
-            value={feedBack ? feedBack : ''}
-            readOnly
-          />
-        </td>
+        <Description feedBack={feedBack} />
         <td>
           <button className='btn bg-light border-dark' onClick={resetField}>
             Delete
