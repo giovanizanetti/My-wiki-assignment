@@ -1,23 +1,17 @@
+import Autocomplete from 'react-autocomplete'
+
 import { getDescription } from '../helpers'
 import { useFetch } from '../hooks/useFetch'
 import { useDebounce } from '../hooks/useDebounce'
-import { useState } from 'react'
 import { transformAndSort } from '../helpers'
+import { useInputChange } from '../hooks/useInputChange'
 
-import Autocomplete from 'react-autocomplete'
 import Description from './Description'
 
 const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
-  const [searchTerm, setSearchTerm] = useState(item.title)
+  const { feedBack, searchTerm, handleChange, setFeedback, setSearchTerm } = useInputChange(item.title)
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   const { data, error, setData } = useFetch(debouncedSearchTerms)
-  const [feedBack, setFeedback] = useState('')
-
-  const handleChange = (e) => {
-    setFeedback('')
-    const value = e.target.value
-    setSearchTerm(value)
-  }
 
   const handleSelect = (label, newArticle) => {
     if (getDescription(newArticle) === 'INVALID') {

@@ -1,27 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Autocomplete from 'react-autocomplete'
+
 import { getDescription } from '../../helpers'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useFetch } from '../../hooks/useFetch'
 import { transformAndSort } from '../../helpers'
+import { useInputChange } from '../../hooks/useInputChange'
+
 import Description from '../Description'
 
 const ArticleInput = ({ addArticle, list }) => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const { feedBack, searchTerm, handleChange, setFeedback, setSearchTerm } = useInputChange()
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   const { data, error, setData } = useFetch(debouncedSearchTerms)
   const inputRef = useRef()
-  const [feedBack, setFeedback] = useState('')
 
   useEffect(() => {
     inputRef.current.focus()
   })
-
-  const handleChange = (e) => {
-    setFeedback('')
-    const value = e.target.value
-    setSearchTerm(value)
-  }
 
   const handleSelect = (label, item) => {
     setData([])
