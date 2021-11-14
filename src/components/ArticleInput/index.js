@@ -11,7 +11,7 @@ const ArticleInput = ({ addArticle, list }) => {
   // eslint-disable-next-line
   const [data, loading, error] = useFetch(debouncedSearchTerms)
   // eslint-disable-next-line
-  const [selected, setSelected] = useState(null)
+  // const [selected, setSelected] = useState(null)
   const inputRef = useRef()
   const [feedBack, setFeedback] = useState('')
 
@@ -27,7 +27,7 @@ const ArticleInput = ({ addArticle, list }) => {
   const handleSelect = (label, item) => {
     if (getDescription(item) === 'INVALID') {
       setFeedback('INVALID')
-      setSelected(item)
+      // setSelected(item)
       return
     }
     // eslint-disable-next-line

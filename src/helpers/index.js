@@ -18,7 +18,7 @@ export const getDescription = (item) => {
  *
  * Convert response object to an Array
  *
- * @returns array of articles objects
+ * @returns array of articles objects containing only needed properties
  */
 export const transformAndSort = (data) => {
   return (
@@ -26,7 +26,10 @@ export const transformAndSort = (data) => {
       Object.keys(data.query.pages)
         .sort((articleA, articleB) => articleA - articleB)
         .map((key) => {
-          return !data.query.pages[key].pageprops.disambiguation && data.query.pages[key]
+          const { title, extract, pageid, pageprops, fullurl } =
+            !data.query.pages[key].pageprops.disambiguation && data.query.pages[key]
+          const filteredResponse = { title, extract, pageid, pageprops, fullurl }
+          return filteredResponse
         })) ||
     []
   )
