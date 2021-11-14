@@ -9,7 +9,7 @@ import { useInputChange } from '../../hooks/useInputChange'
 
 import Description from '../Description'
 
-const ArticleInput = ({ addArticle, list }) => {
+const AddArticle = ({ addArticle, list }) => {
   const { feedBack, searchTerm, handleChange, setFeedback, setSearchTerm } = useInputChange()
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   const { data, error, setData } = useFetch(debouncedSearchTerms)
@@ -70,4 +70,4 @@ const ArticleInput = ({ addArticle, list }) => {
     </tbody>
   )
 }
-export default ArticleInput
+export default AddArticle

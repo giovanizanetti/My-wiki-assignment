@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom'
 import InpuListHeader from './InpuListHeader'
 import InputListFooter from './InputListFooter'
 import Counter from './Counter'
-import ArticleInput from '../../components/ArticleInput'
-import InputItem from '../../components/InputItem'
+import AddArticle from '../../components/AddArticle'
+import ArticleInputItem from '../../ArticleInputItem/index.js'
 
 const InputList = ({ addArticles }) => {
   const [listItems, setListItems] = useState([])
@@ -48,7 +48,7 @@ const InputList = ({ addArticles }) => {
         <InpuListHeader />
         {listItems.map((item) => {
           return (
-            <InputItem
+            <ArticleInputItem
               key={item.pageid}
               deleteItem={handleDeleteArticle}
               item={item}
@@ -57,7 +57,7 @@ const InputList = ({ addArticles }) => {
             />
           )
         })}
-        <ArticleInput addArticle={handleAddArticle} list={listItems} />
+        <AddArticle addArticle={handleAddArticle} list={listItems} />
         <Counter count={count} />
         <InputListFooter submit={handleSubmit} />
       </table>

@@ -28,7 +28,10 @@ The challenge requirements can be found **[here](./challenge_instructions.pdf)**
 ## Features
 
 - Search for Wikipedia article,
-- Save Articles
+- Create a list of the desired articles
+- Update the list of desired articles
+- Delete desired articles
+- Save desired articles to the user articles list
 - Delete Articles
 - Persist saved articles using the browser local storage
 
@@ -53,6 +56,9 @@ Even though styles were provided, I used a bit of the Bootstrap classes. I belie
 
 I struggled a bit to get the`<datalist>` HTML5 tag to work with React. I think that it was one of the main things which delayed my process. Therefore, I changed the plan and used the React-autocomplete npm package to accomplish the autocomplete functionality.
 
+In the beginning, I tried to reuse the `AddArticle` component. However, I ended up with a bug in the delete functionality, which took me some time to reason about. Then, I changed plans to create separated components. Even though they look the same there are some edge cases that would lead to a lot of conditions and maintenance issues. Therefore, they are separated components but make use of common custom hooks
+useInputChange`and`useFetch`.
+
 To integrate the views and manage route changing, I used the React-router-dom package. The user is redirected to`/wikilist` when submit button is pressed. There are links on the navigation bar to navigate back and forth routes. The links are displayed conditionally depending on the current route.
 
 The user articles are saved on the browser LocalStorage. That means the user will not lose the information on page refresh.
@@ -63,7 +69,7 @@ If you have any feedback, please drop me a line at giovanizanetti@gmail.com.
 
 ## Create React App
 
-This project was scaffolded using the create-react-app cli.
+This project was scaffolded using the create-react-app CLI.
 
 **[The standard create-react-app docs can be found in here](./REACT-README.md)**
 

@@ -6,9 +6,9 @@ import { useDebounce } from '../hooks/useDebounce'
 import { transformAndSort } from '../helpers'
 import { useInputChange } from '../hooks/useInputChange'
 
-import Description from './Description'
+import Description from '../components/Description'
 
-const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
+const ArticleInputItem = ({ item, deleteItem, upadateArticle, list }) => {
   const { feedBack, searchTerm, handleChange, setFeedback, setSearchTerm } = useInputChange(item.title)
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   const { data, error, setData } = useFetch(debouncedSearchTerms)
@@ -63,4 +63,4 @@ const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
   )
 }
 
-export default InputItem
+export default ArticleInputItem
