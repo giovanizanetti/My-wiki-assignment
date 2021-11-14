@@ -56,16 +56,16 @@ Even though styles were provided, I used a bit of the Bootstrap classes. I belie
 
 I struggled a bit to get the`<datalist>` HTML5 tag to work with React. I think that it was one of the main things which delayed my process. Therefore, I changed the plan and used the React-autocomplete npm package to accomplish the autocomplete functionality.
 
-In the beginning, I tried to reuse the `AddArticle` component. However, I ended up with a bug in the delete functionality, which took me some time to reason about. Then, I changed plans to create separated components. Even though they look the same there are some edge cases that would lead to a lot of conditions and maintenance issues. Therefore, they are separated components but make use of common custom hooks
-useInputChange`and`useFetch`.
+In the beginning, I tried to reuse the `AddArticle` component. However, I ended up with a bug in the delete functionality, which took me some time to reason about. However, I decided to create separated components. Even though they look the same, there are some edge cases that would lead to a lot of conditions and maintenance issues. So, they are separated components now but make use of common custom hooks
+`useInputChange` and `useFetch`.
 
 To integrate the views and manage route changing, I used the React-router-dom package. The user is redirected to`/wikilist` when submit button is pressed. There are links on the navigation bar to navigate back and forth routes. The links are displayed conditionally depending on the current route.
 
-The user articles are saved on the browser LocalStorage. That means the user will not lose the information on page refresh.
+The user articles are saved on the browser Local Storage. That means the user will not lose the information on page refresh.
 
 My application is deployed with continuous deployment. This is done by, integrating the project's GitHub repo with [Netlify](https://www.netlify.com/).
 
-If you have any feedback, please drop me a line at giovanizanetti@gmail.com.
+If you have any feedback, please drop me a line at zanetti.giovani@gmail.com.
 
 ## Create React App
 
