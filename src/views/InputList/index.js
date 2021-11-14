@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import InpuListHeader from './InpuListHeader'
-import InputListFooter from './InputListFooter'
-import Counter from './Counter'
+import InpuListHeader from '../../components/InputListHeader'
+import InputListFooter from '../../components/InputListFooter'
+import Counter from '../../components/Counter'
 import AddArticle from '../../components/AddArticle'
 import ArticleInputItem from '../../ArticleInputItem/index.js'
 
