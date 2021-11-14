@@ -24,6 +24,7 @@ const ArticleInput = ({ addArticle, list }) => {
   }
 
   const handleSelect = (label, item) => {
+    setData([])
     if (getDescription(item) === 'INVALID') {
       setFeedback('INVALID')
       return

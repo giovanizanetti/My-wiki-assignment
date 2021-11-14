@@ -13,7 +13,7 @@ const InputList = ({ addArticles }) => {
   const history = useHistory()
 
   const handleAddArticle = (article) => {
-    // eslint-disable-next-line
+    //check for duplicated
     const isItem = listItems.find((item) => item.pageid === article.pageid)
 
     if (!isItem) {
@@ -21,6 +21,7 @@ const InputList = ({ addArticles }) => {
     } else {
     }
   }
+
   const handleDeleteArticle = (id) => {
     const filteredItems = listItems.filter((item) => item.pageid !== id)
     setListItems(filteredItems)
@@ -30,6 +31,15 @@ const InputList = ({ addArticles }) => {
     setListItems([])
     history.push('/wikilist')
   }
+
+  const handleUpdateArticle = (prevArticleId, newArticle) => {
+    const indexToBeUpdated = listItems.findIndex((element) => element.pageid === prevArticleId)
+    const listItemsCopy = [...listItems]
+    listItemsCopy[indexToBeUpdated] = newArticle
+    const updatedList = listItemsCopy
+    setListItems(updatedList)
+  }
+
   const count = listItems.length < 1 ? 'No items' : listItems.length === 1 ? `1 item` : `${listItems.length} items`
 
   return (
@@ -37,7 +47,15 @@ const InputList = ({ addArticles }) => {
       <table>
         <InpuListHeader />
         {listItems.map((item) => {
-          return <InputItem key={item.pageid} deleteItem={handleDeleteArticle} item={item} />
+          return (
+            <InputItem
+              key={item.pageid}
+              deleteItem={handleDeleteArticle}
+              item={item}
+              list={listItems}
+              upadateArticle={handleUpdateArticle}
+            />
+          )
         })}
         <ArticleInput addArticle={handleAddArticle} list={listItems} />
         <Counter count={count} />
