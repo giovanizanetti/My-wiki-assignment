@@ -8,8 +8,7 @@ import { transformAndSort } from '../../helpers'
 const ArticleInput = ({ addArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
-  // eslint-disable-next-line
-  const [data, loading, error, setData] = useFetch(debouncedSearchTerms)
+  const { data, error, setData } = useFetch(debouncedSearchTerms)
   const inputRef = useRef()
   const [feedBack, setFeedback] = useState('')
 

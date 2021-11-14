@@ -9,8 +9,7 @@ import Autocomplete from 'react-autocomplete'
 const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
   const [searchTerm, setSearchTerm] = useState(item.title)
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
-  // eslint-disable-next-line
-  const [data, loading, error, setData] = useFetch(debouncedSearchTerms)
+  const { data, error, setData } = useFetch(debouncedSearchTerms)
   const [feedBack, setFeedback] = useState('')
 
   const handleChange = (e) => {
@@ -20,7 +19,6 @@ const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
   }
 
   const handleSelect = (label, newArticle) => {
-    // setData([])
     if (getDescription(newArticle) === 'INVALID') {
       setFeedback('INVALID')
       return
@@ -34,6 +32,13 @@ const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
       setFeedback('THIS ARTICLE HAS BEEN ALREADY SELECTED!')
     }
   }
+
+  const handleDelete = () => {
+    deleteItem(item?.pageid)
+    setData([])
+  }
+
+  if (error) return <strong className='text-danger'>Ops! one error has ocurred!</strong>
 
   return (
     <tbody>
@@ -62,13 +67,7 @@ const InputItem = ({ item, deleteItem, upadateArticle, list }) => {
           />
         </td>
         <td>
-          <button
-            className='btn bg-light border-dark'
-            onClick={() => {
-              deleteItem(item?.pageid)
-              setData([])
-            }}
-          >
+          <button className='btn bg-light border-dark' onClick={handleDelete}>
             Delete
           </button>
         </td>
