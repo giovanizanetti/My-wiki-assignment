@@ -10,8 +10,6 @@ const ArticleInput = ({ addArticle, list }) => {
   const debouncedSearchTerms = useDebounce(() => searchTerm, 300)
   // eslint-disable-next-line
   const [data, loading, error] = useFetch(debouncedSearchTerms)
-  // eslint-disable-next-line
-  // const [selected, setSelected] = useState(null)
   const inputRef = useRef()
   const [feedBack, setFeedback] = useState('')
 
@@ -20,6 +18,7 @@ const ArticleInput = ({ addArticle, list }) => {
   }, [])
 
   const handleChange = (e) => {
+    setFeedback('')
     const value = e.target.value
     setSearchTerm(value)
   }
@@ -27,11 +26,9 @@ const ArticleInput = ({ addArticle, list }) => {
   const handleSelect = (label, item) => {
     if (getDescription(item) === 'INVALID') {
       setFeedback('INVALID')
-      // setSelected(item)
       return
     }
-    // eslint-disable-next-line
-    const isItem = list.find((article) => article.pageid == item.pageid)
+    const isItem = list.find((article) => article.pageid === item.pageid)
     if (!isItem) {
       addArticle(item)
       setFeedback(false)
@@ -41,7 +38,7 @@ const ArticleInput = ({ addArticle, list }) => {
     }
   }
 
-  if (error) return <strong>Ops! one error has ocurred!</strong>
+  if (error) return <strong className='text-danger'>Ops! one error has ocurred!</strong>
   return (
     <tbody>
       <tr>
