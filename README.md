@@ -50,7 +50,7 @@ Once you have cloned the repo, you can run:
 
 ## Decisions
 
-Even though I could use any technologies to accomplish this task, I decided to go for React.js. The vacancy I'm applying for is a React Developer position, so I think it would be wise to show that I can work with this technology.
+Even though I could use any technology to accomplish this task, I decided to go for React.js. The vacancy I'm applying for is a React Developer position, so I think it would be wise to show that I can work with this technology.
 
 Even though styles were provided, I used a bit of the Bootstrap classes. I believe that is a good opportunity to show that I can work with libraries.
 
