@@ -1,3 +1,15 @@
+/**
+ * Format description
+ * @param item
+ *
+ * Check if there is a short description
+ * @returns short description
+ * If no  short description
+ * @returns long dexcrition
+ * if no description
+ * @returns string INVALID
+ *
+ */
 export const getDescription = (item) => {
   if (!item) return ''
   const invalidDescription = 'INVALID'
@@ -17,6 +29,8 @@ export const getDescription = (item) => {
  * Sort data ascendantly
  *
  * Convert response object to an Array
+ *
+ * @param data
  *
  * @returns array of articles objects containing only needed properties
  */
