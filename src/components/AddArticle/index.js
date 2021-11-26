@@ -17,7 +17,14 @@ const AddArticle = ({ addArticle, list }) => {
 
   useEffect(() => {
     inputRef.current.focus()
+    console.log(data)
   })
+
+  useEffect(() => {
+    if (data?.hasOwnProperty('batchcomplete') && !data?.query) {
+      setTimeout(() => setFeedback('NOT FOUND! TRY ANOTHER SEARCH TERM'), 500)
+    }
+  }, [data, setFeedback])
 
   const handleSelect = (label, item) => {
     setData([])
