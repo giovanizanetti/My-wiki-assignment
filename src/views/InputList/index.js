@@ -5,7 +5,7 @@ import InpuListHeader from '../../components/InputListHeader'
 import InputListFooter from '../../components/InputListFooter'
 import Counter from '../../components/Counter'
 import AddArticle from '../../components/AddArticle'
-import ArticleInputItem from '../../ArticleInputItem/index.js'
+import ArticleInputItem from '../../components/ArticleInputItem/index.js'
 import { useDispatch } from 'react-redux'
 
 import { SAVE_ARTICLES } from '../../config/constants'
