@@ -6,3 +6,8 @@
 
 export const BASE_URL =
   'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&uselang=user&prop=extracts%7Cpageprops%7Cinfo&generator=prefixsearch&redirects=1&exsentences=1&exintro=1&explaintext=1&inprop=url&gpssearch='
+
+//Action types
+
+export const SAVE_ARTICLES = 'SAVE_ARTICLES'
+export const DELETE_ARTICLES = ' DELETE_ARTICLES'

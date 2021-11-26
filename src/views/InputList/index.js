@@ -6,16 +6,18 @@ import InputListFooter from '../../components/InputListFooter'
 import Counter from '../../components/Counter'
 import AddArticle from '../../components/AddArticle'
 import ArticleInputItem from '../../ArticleInputItem/index.js'
+import { useDispatch } from 'react-redux'
 
-const InputList = ({ addArticles }) => {
-  const [listItems, setListItems] = useState([])
+import { SAVE_ARTICLES } from '../../config/constants'
 
+const InputList = () => {
+  const dispatch = useDispatch()
   const history = useHistory()
+  const [listItems, setListItems] = useState([])
 
   const handleAddArticle = (article) => {
     //check for duplicated
     const isItem = listItems.find((item) => item.pageid === article.pageid)
-
     if (!isItem) {
       setListItems((prevState) => [...prevState, article])
     } else {
@@ -27,7 +29,11 @@ const InputList = ({ addArticles }) => {
     setListItems(filteredItems)
   }
   const handleSubmit = () => {
-    addArticles(listItems)
+    dispatch({
+      type: SAVE_ARTICLES,
+      payload: listItems,
+    })
+
     setListItems([])
     history.push('/wikilist')
   }

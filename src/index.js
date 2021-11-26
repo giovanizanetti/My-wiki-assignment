@@ -6,14 +6,19 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../src/config/i18n'
 
+import { Provider } from 'react-redux'
+import { store } from './store'
+
 import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback='Loading...'>
-      <Router>
-        <App />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
     </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
